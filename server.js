@@ -9,6 +9,11 @@ const io = socketIo(server);
 
 app.use(express.static('public'));
 
+// Explicit route for root path
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 const rooms = new Map();
 
 io.on('connection', (socket) => {
