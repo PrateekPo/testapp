@@ -160,7 +160,7 @@ socket.on('user-connected', (userId, userName) => {
 
 socket.on('existing-users', (users) => {
     users.forEach(user => {
-        createPeer(user.socketId, user.name, false);
+        createPeer(user.socketId, user.name, true);
     });
 });
 

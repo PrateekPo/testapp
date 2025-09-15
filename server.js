@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('signal', (data) => {
-    socket.to(data.to).emit('signal', {
+    io.to(data.to).emit('signal', {
       signal: data.signal,
       from: socket.id
     });
