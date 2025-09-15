@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Video Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h1>Doctor Video Chat</h1>
+        <input type="text" id="username" placeholder="Enter your name" required>
+        <input type="text" id="room-id" placeholder="Room ID (optional)">
+        <button onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <div id="main-screen" style="display: none;">
+        <div id="video-container">
+            <div id="local-video-container">
+                <video id="local-video" autoplay muted></video>
+                <span class="video-label">You</span>
+            </div>
+            <div id="remote-videos"></div>
+        </div>
+
+        <div id="chat-container">
+            <div id="chat-messages"></div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div id="controls">
+            <button id="mute-btn" onclick="toggleMute()">🎤</button>
+            <button id="video-btn" onclick="toggleVideo()">📹</button>
+            <button onclick="leaveRoom()">Leave</button>
+            <span id="room-info"></span>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/simple-peer@9.11.1/simplepeer.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
